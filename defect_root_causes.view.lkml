@@ -2,6 +2,7 @@ view: defect_root_causes {
   sql_table_name: dbo.DefectRootCauses ;;
 
   dimension_group: date_added {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -16,6 +17,7 @@ view: defect_root_causes {
   }
 
   dimension_group: date_modified {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -30,32 +32,40 @@ view: defect_root_causes {
   }
 
   dimension: defect_number {
+    label: "Defect Number"
+    hidden: no
     type: number
     sql: ${TABLE}.defect_number ;;
   }
 
   dimension: rootcause_id {
+    hidden: yes
+    primary_key: yes
     type: number
     sql: ${TABLE}.rootcause_id ;;
   }
 
   dimension: rootcause_notes {
+    label: "Root Cause Notes"
+    hidden: no
     type: string
     sql: ${TABLE}.rootcause_notes ;;
   }
 
   dimension: rootcausetype_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.rootcausetype_id ;;
   }
 
   dimension: user_id {
+    hidden: yes
     type: number
-    # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
 
   measure: count {
+    hidden: yes
     type: count
     drill_fields: [users.users_id, users.fullname, users.user_name]
   }
