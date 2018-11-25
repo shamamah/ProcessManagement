@@ -25,10 +25,39 @@ explore: defects {
   }
 
   join: users_defects {
-    view_label: "Users"
+    view_label: "Defect Users"
     relationship: many_to_one
     type: left_outer
-    sql_on: ${users_defects.users_id} = ${defect_root_causes.user_id} ;;
+    sql_on:  ${defect_root_causes.user_id} = ${users_defects.users_id} ;;
   }
 
+  join: custmval_customer {
+    view_label: "Company"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${defects.id_record} = ${custmval_customer.parent_id} ;;
+    sql_where: ${custmval_customer.id_cust_rec} = 114 ;;
+  }
+
+  join: fldcustm_companyname {
+    view_label: "Company"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${fldcustm_companyname.id_record} = ${custmval_customer.cust_value} ;;
+  }
+
+  join: custmval_servicetype {
+    view_label: "Service Type"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${defects.id_record} = ${custmval_servicetype.parent_id} ;;
+    sql_where: ${custmval_servicetype.id_cust_rec} = 763 ;;
+  }
+
+  join: fldcustm_servicetype {
+    view_label: "Service Type"
+    relationship: many_to_one
+    type: inner
+    sql_on: ${fldcustm_servicetype.id_record} = ${custmval_servicetype.cust_value} ;;
+  }
 }

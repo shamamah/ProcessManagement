@@ -61,7 +61,7 @@ view: defects {
   }
 
   dimension: defect_num {
-    label: "Defect Number"
+    label: "TT Number (DefectNum)"
     hidden: no
     type: number
     sql: ${TABLE}.DefectNum ;;
@@ -86,7 +86,8 @@ view: defects {
   }
 
   dimension: id_enter_by {
-    hidden: yes
+    label: "Enter By (ID)"
+    hidden: no
     type: number
     sql: ${TABLE}.idEnterBy ;;
   }
@@ -132,7 +133,8 @@ view: defects {
   }
 
   dimension: id_type {
-    hidden: yes
+    label: "Type (ID)"
+    hidden: no
     type: number
     sql: ${TABLE}.idType ;;
   }
@@ -162,7 +164,7 @@ view: defects {
   }
 
   dimension: status {
-    label: "Status"
+    label: "Status (ID)"
     hidden: no
     type: number
     sql: ${TABLE}.Status ;;

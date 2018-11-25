@@ -2,7 +2,8 @@ view: defect_root_causes {
   sql_table_name: dbo.DefectRootCauses ;;
 
   dimension_group: date_added {
-    hidden: yes
+    label: "Root Cause"
+    hidden: no
     type: time
     timeframes: [
       raw,
@@ -32,8 +33,7 @@ view: defect_root_causes {
   }
 
   dimension: defect_number {
-    label: "Defect Number"
-    hidden: no
+    hidden: yes
     type: number
     sql: ${TABLE}.defect_number ;;
   }
@@ -49,7 +49,7 @@ view: defect_root_causes {
     label: "Root Cause Notes"
     hidden: no
     type: string
-    sql: ${TABLE}.rootcause_notes ;;
+    sql: ISNULL(${TABLE}.rootcause_notes, '') ;;
   }
 
   dimension: rootcausetype_id {

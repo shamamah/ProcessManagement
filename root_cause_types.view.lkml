@@ -5,7 +5,7 @@ view: root_cause_types {
     label: "Root Cause Type"
     hidden: no
     type: string
-    sql: ${TABLE}.rootcausetype ;;
+    sql: ISNULL(${TABLE}.rootcausetype, '') ;;
   }
 
   dimension: rootcausetype_id {

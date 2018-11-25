@@ -2,70 +2,69 @@ view: users_defects {
   sql_table_name: dbo.UsersDefects ;;
 
   dimension: admin {
-    hidden: yes
+    label: "Is Admin"
     type: string
-    sql: ${TABLE}.admin ;;
+    sql: case when ISNULL(${TABLE}.admin,0) = 0 then 'No' Else 'Yes' End ;;
   }
 
   dimension: approved {
-    hidden: yes
+    label: "Is Approved"
     type: string
-    sql: ${TABLE}.approved ;;
+    sql: case when ISNULL(${TABLE}.approved,0) = 0 then 'No' else 'Yes' End ;;
   }
 
   dimension: company {
-    hidden: yes
+    label: "Company"
     type: string
     sql: ${TABLE}.company ;;
   }
 
   dimension: company_id {
-    hidden: yes
+    label: "Company ID"
     type: number
-    # hidden: yes
     sql: ${TABLE}.company_id ;;
   }
 
   dimension: database_id {
-    hidden: yes
+    label: "Database ID"
     type: number
     sql: ${TABLE}.database_id ;;
   }
 
   dimension: domain {
-    hidden: yes
+    label: "Domain"
     type: string
     sql: ${TABLE}.domain ;;
   }
 
   dimension: email {
-    hidden: yes
+    label: "Email"
     type: string
     sql: ${TABLE}.email ;;
   }
 
   dimension: first_name {
-    hidden: yes
+    label: "First Name"
     type: string
     sql: ${TABLE}.first_name ;;
   }
 
   dimension: internal_employee {
-    hidden: yes
+    label: "Is Internal Employee"
     type: string
-    sql: ${TABLE}.internal_employee ;;
+    sql: case when ISNULL(${TABLE}.internal_employee,0) = 0 then 'No' else 'Yes' end ;;
   }
 
   dimension: last_name {
-    hidden: yes
+    label: "Last Name"
     type: string
     sql: ${TABLE}.last_name ;;
   }
 
   dimension: management {
-    hidden: yes
+    label: "Is Management"
     type: string
-    sql: ${TABLE}.management ;;
+    sql: case when ISNULL(${TABLE}.management,0) = 0 then 'No' else 'Yes' end ;;
   }
 
   dimension: name_style {
@@ -81,64 +80,63 @@ view: users_defects {
   }
 
   dimension: phone {
-    hidden: yes
+    label: "Phone"
     type: string
     sql: ${TABLE}.phone ;;
   }
 
   dimension: product_id {
-    hidden: yes
+    label: "Product ID"
     type: number
     sql: ${TABLE}.product_id ;;
   }
 
   dimension: team_id {
-    hidden: yes
+    label: "Team ID"
     type: number
     sql: ${TABLE}.team_id ;;
   }
 
   dimension: ttuser_id {
-    hidden: yes
+    label: "TT User ID"
     type: number
     sql: ${TABLE}.ttuser_id ;;
   }
 
   dimension: ttuser_name {
-    hidden: yes
+    label: "TT User Name"
     type: string
     sql: ${TABLE}.ttuser_name ;;
   }
 
   dimension: username {
     label: "User Name"
-    hidden: no
     type: string
     sql: ${TABLE}.username ;;
   }
 
   dimension: users_id {
     primary_key: yes
-    hidden: yes
+    label: "User ID"
     type: number
     # hidden: yes
     sql: ${TABLE}.users_id ;;
   }
 
   dimension: vendor {
-    hidden: yes
+    label: "Vendor"
     type: string
     sql: ${TABLE}.vendor ;;
   }
 
   dimension: view_only {
-    hidden: yes
+    label: "Is View Only"
     type: string
-    sql: ${TABLE}.view_only ;;
+    sql: case when ISNULL(${TABLE}.view_only,0) = 0 then 'No' else 'Yes' End ;;
   }
 
   measure: count {
-    hidden: yes
+    label: "User Defect Count"
     type: count
     drill_fields: [detail*]
   }
