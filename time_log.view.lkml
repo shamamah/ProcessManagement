@@ -97,7 +97,9 @@ view: time_log {
     sql: ${TABLE}.date_rolled ;;
   }
 
-  dimension: duration {
+  dimension: dim_duration {
+    hidden: yes
+    label: "Duration (Min)"
     type: number
     sql: ${TABLE}.duration ;;
   }
@@ -217,6 +219,14 @@ view: time_log {
     drill_fields: [detail*]
   }
 
+  measure: duration {
+    label: "Duration (Hrs)"
+    type: sum
+    value_format_name: decimal_2
+    sql: ${dim_duration} / 60. ;;
+    drill_fields: [duration*]
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
@@ -228,6 +238,15 @@ view: time_log {
       users.users_id,
       users.fullname,
       users.user_name
+    ]
+  }
+
+  set: duration {
+    fields: [
+      company.company_name,
+      service_category.description,
+      users.fullname,
+      duration,
     ]
   }
 }

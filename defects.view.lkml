@@ -63,7 +63,8 @@ view: defects {
   dimension: defect_num {
     label: "TT Number (DefectNum)"
     hidden: no
-    type: string
+    type: number
+    value_format_name: id
     sql: ${TABLE}.DefectNum ;;
   }
 

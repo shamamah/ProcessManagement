@@ -37,4 +37,11 @@ explore: time_log {
     type: inner
     sql_on: ${company.company_id} = ${time_log.company_id} ;;
   }
+
+  join: users {
+    view_label: "User"
+    relationship: one_to_many
+    type: inner
+    sql_on: ${users.users_id} = ${time_log.users_id} ;;
+  }
 }
