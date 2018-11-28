@@ -3,16 +3,19 @@ view: services {
 
   dimension: services_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.services_id ;;
   }
 
   dimension: added_by_users_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.added_by_users_id ;;
   }
 
   dimension_group: added {
+    label: "Added"
     type: time
     timeframes: [
       raw,
@@ -27,21 +30,25 @@ view: services {
   }
 
   dimension: code {
+    label: "Service Code"
     type: string
     sql: ${TABLE}.code ;;
   }
 
   dimension: description {
+    label: "Service Description"
     type: string
     sql: ${TABLE}.description ;;
   }
 
   dimension: explanation {
+    label: "Explanation"
     type: string
     sql: ${TABLE}.explanation ;;
   }
 
   dimension_group: last_modified {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -56,22 +63,25 @@ view: services {
   }
 
   dimension: last_modified_users_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.last_modified_users_id ;;
   }
 
   dimension: service_category_id {
+    hidden: yes
     type: number
-    # hidden: yes
     sql: ${TABLE}.service_category_id ;;
   }
 
   dimension: status {
+    label: "Status"
     type: string
     sql: ${TABLE}.status ;;
   }
 
   dimension: statuscode_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.statuscode_id ;;
   }

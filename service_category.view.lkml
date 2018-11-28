@@ -3,17 +3,19 @@ view: service_category {
 
   dimension: service_category_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.service_category_id ;;
   }
 
   dimension: description {
+    label: "Service Category Description"
     type: string
     sql: ${TABLE}.description ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [service_category_id, services.count]
-  }
+#   measure: count {
+#     type: count
+#     drill_fields: [service_category_id, services.count]
+#   }
 }

@@ -1,3 +1,4 @@
+#connection: "appcenter"
 connection: "kaboodle_hazard"
 
 include: "*.view"

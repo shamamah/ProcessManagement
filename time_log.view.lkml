@@ -3,11 +3,13 @@ view: time_log {
 
   dimension: time_log_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.time_log_id ;;
   }
 
   dimension_group: acct {
+    label: "Acct"
     type: time
     timeframes: [
       raw,
@@ -22,11 +24,13 @@ view: time_log {
   }
 
   dimension: added_by_users_id {
+    label: "Added User ID"
     type: number
     sql: ${TABLE}.added_by_users_id ;;
   }
 
   dimension_group: added {
+    hidden: yes
     type: time
     timeframes: [
       raw,
@@ -41,11 +45,13 @@ view: time_log {
   }
 
   dimension: assigned_to_user_id {
+    label: "Assigned User ID"
     type: number
     sql: ${TABLE}.assigned_to_user_id ;;
   }
 
   dimension: billingtype_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.billingtype_id ;;
   }

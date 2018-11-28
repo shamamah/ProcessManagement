@@ -136,7 +136,7 @@ view: users_defects {
   }
 
   measure: count {
-    label: "User Defect Count"
+    label: "Count"
     type: count
     drill_fields: [detail*]
   }
