@@ -30,7 +30,7 @@ view: time_log {
   }
 
   dimension_group: added {
-    hidden: yes
+    hidden: no
     type: time
     timeframes: [
       raw,
